@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  body{
+   text-align: center;
+  }
+    .options{
+      display: flex;
+      flex-direction: column;
+     max-width: 60%;
+    
+    }
+   .options #option{
+     margin: 8px;
+      padding: 7px;
+      font-size: 18px;
+    }
+    .content{
+      display: flex;
+      border: solid 2px red;
+      margin: 4px;
+      padding: 8px;
+      justify-content: space-around;
+      align-items: center;
+      border-radius: 7px;
+      box-shadow: 1px 1px 7px black;
+    }
+    button{
+      margin-top: 14px;
+      width: 40%;
+      height: 40px;
+      font-size: 20px;
+      background-color: #44c6ec90;
+      border: none;
+      border-radius: 7px;
+    }
+    button:hover{
+      box-shadow: 1px 1px 8px black;
+    }
+    .outQ{
+      margin-top: 15px;
+    }
+    .quesIn{
+  
+      background-color: #94e3fa90;
+      padding: 8px;
+    }
+  </style>
+</head>
+<body>
+    <h3>applying 5s</h3>
+    <em>by Aklok T.</em>
+  <div class="content">
+    <div class="outQ"></div>
+    <div class="options">
+      <select name="1" id="option">
+        <option value="#">select</option>
+      <option value="a">seiri</option>
+      <option value="b">seiketsu</option>
+      <option value="c">seiso</option>
+      <option value="d">shitsuke</option>
+      <option value="e">seiton</option>
+      </select>
+     <select name="2" id="option">
+         <option value="#">select</option>
+      <option value="a">seiri</option>
+      <option value="b">seiketsu</option>
+      <option value="c">seiso</option>
+      <option value="d">shitsuke</option>
+      <option value="e">seiton</option>
+      </select>
+       <select name="3" id="option">
+           <option value="#">select</option>
+      <option value="a">seiri</option>
+      <option value="b">seiketsu</option>
+      <option value="c">seiso</option>
+      <option value="d">shitsuke</option>
+      <option value="e">seiton</option>
+      </select>
+        <select name="4" id="option">
+            <option value="#">select</option>
+      <option value="a">seiri</option>
+      <option value="b">seiketsu</option>
+      <option value="c">seiso</option>
+      <option value="d">shitsuke</option>
+      <option value="e">seiton</option>
+      </select>
+        <select name="5" id="option">
+            <option value="#">select</option>
+      <option value="a">seiri</option>
+      <option value="b">seiketsu</option>
+      <option value="c">seiso</option>
+      <option value="d">shitsuke</option>
+      <option value="e">seiton</option>
+      </select>
+           
+    </div>
+   
+  </div>
+   <button onclick="submit()">submit</button>
+</body>
+ <script>
+   const questions = [
+    {
+      question: 'sort',
+      answer: 'a'
+    },
+     {
+      question: 'set in order',
+      answer: 'e'
+    },
+       {
+      question: 'shine',
+      answer: 'b'
+    }, 
+        {
+      question: 'standardaiz',
+      answer: 'c'
+    },
+        {
+      question: 'sustain',
+      answer: 'd'
+    },
+     ]
+   function display(){
+   const outQ = document.querySelector('.outQ')
+  
+  const ques = questions.map((question)=>{ return `<div class='quesIn'></>${question.question}</div><br>`
+  }).join(' ')
+   outQ.innerHTML = ques
+   }
+   
+   display()
+   let score = 0;
+   function submit(){
+    
+     score = 0
+    const options = document.querySelectorAll('#option')
+   options.forEach((option, index)=>{
+
+     if(option.value === questions[index].answer){
+       score++
+     }
+          option.value = '#';
+   })
+   alert(`${score}/${questions.length}`)
+   }
+ </script>
+</html>
